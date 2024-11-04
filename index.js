@@ -280,8 +280,6 @@ function generatePassword(length) {
     const uppercaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
     const numbers = '0123456789';
-    
-    // Combine all character types into one string
     const allCharacters = uppercaseLetters + lowercaseLetters + numbers;
     let password = '';
     
@@ -289,14 +287,59 @@ function generatePassword(length) {
     for (let i = 0; i < length; i++) {
         // Get a random index from allCharacters
         const randomIndex = Math.floor(Math.random() * allCharacters.length);
-        // Append the character at the random index to the password
         password += allCharacters[randomIndex];
     }
     
-    return password; // Return the generated password
+    return password; 
 }
 
 // Example usage
-const passwordLength = 12; // Specify the desired password length
+const passwordLength = 12; 
 const newPassword = generatePassword(passwordLength);
-console.log(newPassword); // Outputs a randomly generated password of specified length
+console.log(newPassword); 
+
+//charFrequence
+
+function charFrequency(str) {
+    const frequency = {}; 
+
+    for (let char of str) { 
+        if (frequency[char]) { 
+            frequency[char] += 1; 
+            frequency[char] = 1;
+        }
+    }
+
+    return frequency; 
+}
+//Exampel usage
+charFrequency("hello world");
+
+
+//
+function arrayIntersection(arr1, arr2) {
+    const intersection = arr1.filter(element => arr2.includes(element));
+    return [...new Set(intersection)];
+
+}
+//Exampel usage
+const aray1 = [1, 2, 3, 4, 5];
+const aray2 = [4, 5, 6, 7, 8];
+arrayIntersection(aray1, aray2);
+
+//String Reversal
+function reverseWords(str) {
+    return str.split(" ").reverse().join(" ");
+}
+//exampel usage
+reverseWords("Java script");
+
+
+
+//findMin
+function findMin(arr) {
+    return Math.min(...arr);
+}
+//Exampel usage
+const nlist = [1, 2, 4, 5, 0, 10];
+findMin(nlist);
